@@ -8,19 +8,36 @@ import {
   Dimensions,
 } from "react-native";
 import CardComponent from "../components/CardComponent";
+import HeaderComponent from "../components/HeaderComponent";
+import NavigationHeader from "../components/NavigationHeader";
 
-function GmailTutorialsScreen(props) {
+function GmailTutorialsScreen({ navigation, route }) {
   return (
     <View>
-      <ScrollView>
+      <HeaderComponent navigation={navigation} />
+      <NavigationHeader title={route.name} navigation={navigation} />
+      <View
+        styles={{
+          width: Dimensions.get("window").width,
+          elevation: 10,
+          backgroungColor: "#333",
+        }}
+      >
+        <Text style={styles.title}>Choose a Tutorial</Text>
+      </View>
+      <ScrollView style={{ height: 500 }}>
         <CardComponent onPress={() => {}}>
-          <Text style={styles.title}>Gmail</Text>
           <Image
             style={styles.cardimage}
             source={require("../images/gmail.png")}
           />
 
-          <Text style={styles.description}>
+          <Text style={styles.text}>What is Gmail?</Text>
+          <Text
+            numberOfLines={2}
+            ellipsizeMode="tail"
+            style={styles.description}
+          >
             With Gmail, your email is stored safely in the cloud. You can get to
             messages from any computer or device with a web browser. If your
             administrator allows, you can join or start a video meeting in
@@ -62,13 +79,23 @@ const styles = StyleSheet.create({
     height: 150,
     resizeMode: "contain",
     alignContent: "center",
+    alignSelf: "center",
+    position: "relative",
   },
   text: {
     fontSize: 20,
     fontWeight: "bold",
     justifyContent: "center",
   },
-  title: {},
+  description: {
+    marginTop: 10,
+    marginHorizontal: 10,
+  },
+  title: {
+    fontSize: 25,
+    marginVertical: 20,
+    alignSelf: "center",
+  },
 });
 
 export default GmailTutorialsScreen;

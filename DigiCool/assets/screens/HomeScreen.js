@@ -7,9 +7,9 @@ import HeaderComponent from "../components/HeaderComponent";
 function HomeScreen({ navigation }) {
   return (
     <View>
-      <HeaderComponent />
+      <HeaderComponent navigation={navigation} />
       <View style={{ alignItems: "center" }}>
-        <Text style={styles.title}>What would you like to do?</Text>
+        <Text style={styles.title}>What would you like to do today?</Text>
 
         <HStack style={{ justifyContent: "center" }}>
           <CardComponent
@@ -53,7 +53,7 @@ function HomeScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 20,
+    fontSize: 25,
     marginVertical: 20,
   },
   cardimage: {

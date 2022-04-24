@@ -7,14 +7,19 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  Button,
+  TouchableOpacity,
 } from "react-native";
+import { Ionicons } from "react-native-vector-icons";
 import CardComponent from "../components/CardComponent";
 import HeaderComponent from "../components/HeaderComponent";
+import NavigationHeader from "../components/NavigationHeader";
 
-function TutorialsScreen({ navigation }) {
+function TutorialsScreen({ navigation, route }) {
   return (
     <View>
-      <HeaderComponent />
+      <HeaderComponent navigation={navigation} />
+      <NavigationHeader title={route.name} navigation={navigation} />
       <View style={{ alignItems: "center" }}>
         <Text style={styles.title}>Choose an App</Text>
 
@@ -91,7 +96,7 @@ function TutorialsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 20,
+    fontSize: 25,
     marginVertical: 20,
   },
   cardimage: {

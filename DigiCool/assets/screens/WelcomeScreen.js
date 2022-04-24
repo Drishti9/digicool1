@@ -14,18 +14,18 @@ import HeaderComponent from "../components/HeaderComponent";
 
 function WelcomeScreen({ navigation }) {
   return (
-    <View>
-      <HeaderComponent style={{ width: "100%" }} />
+    <View style={{ width: "100%" }}>
+      <HeaderComponent style={{ width: "100%" }} navigation={navigation} />
       <ImageBackground
         source={require("../images/scroll.png")}
         // style={styles.image}
         style={{
           width: Dimensions.get("window").width,
           height: "80%",
-          marginTop: 10,
           paddingLeft: 30,
-          //   backgroundColor: "#555",
+          backgroundColor: "#555",
           resizeMode: "contain",
+          alignSelf: "center",
         }}
       >
         <View
@@ -40,7 +40,15 @@ function WelcomeScreen({ navigation }) {
             // backgroundColor: "#000",
           }}
         >
-          <Text style={{ fontSize: 40, margin: 75, fontWeight: "bold" }}>
+          <Text
+            style={{
+              fontSize: 40,
+              margin: 80,
+              fontWeight: "bold",
+              marginBottom: 50,
+              marginHorizontal: 90,
+            }}
+          >
             Age is just a number, Keep up the good work.
           </Text>
         </View>

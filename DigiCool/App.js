@@ -10,6 +10,7 @@ import GmailTutorialsScreen from "./assets/screens/GmailTutorialsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { enableScreens } from "react-native-screens";
 import { NavigationContainer } from "@react-navigation/native";
+import NavigationStack from "./assets/navigation/NavigationStack";
 
 //import { AlanView } from "@alan-ai/alan-sdk-react-native";
 
@@ -21,7 +22,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <NativeBaseProvider>
-        <Stack.Navigator>
+        {/* <HeaderComponent /> */}
+        <NavigationStack />
+        {/* <Stack.Navigator>
           <Stack.Screen
             options={{ headerLargeTitle: true, headerShown: false }}
             name="WelcomeScreen"
@@ -32,9 +35,13 @@ export default function App() {
             name="HomeScreen"
             component={HomeScreen}
           />
-          <Stack.Screen name="Tutorials" component={TutorialsScreen} />
+          <Stack.Screen
+            // options={{ headerShown: false }}
+            name="Tutorials"
+            component={TutorialsScreen}
+          />
           <Stack.Screen name="Gmail" component={GmailTutorialsScreen} />
-        </Stack.Navigator>
+        </Stack.Navigator> */}
         {/* <WelcomeScreen /> */}
       </NativeBaseProvider>
       {/* <AlanView

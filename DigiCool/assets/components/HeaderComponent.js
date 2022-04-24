@@ -11,7 +11,7 @@ import {
 import { HStack, StatusBar } from "native-base";
 import { AntDesign, Ionicons } from "react-native-vector-icons";
 
-function HeaderComponent(props) {
+function HeaderComponent({ navigation }) {
   return (
     <View>
       <StatusBar backgroundColor="#61dafb" barStyle="dark-content" />
@@ -26,7 +26,7 @@ function HeaderComponent(props) {
           underlayColor="#021626"
           title="User"
           style={({ marginRight: 15 }, styles.button)}
-          onPress={() => console.log("User")}
+          onPress={() => navigation.navigate("User Settings")}
         >
           <AntDesign name="user" color="white" size={35} />
         </TouchableHighlight>
