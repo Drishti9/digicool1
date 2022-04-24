@@ -5,9 +5,13 @@ import { Text } from "react-native";
 import HeaderComponent from "./assets/components/HeaderComponent";
 import WelcomeScreen from "./assets/screens/WelcomeScreen";
 import HomeScreen from "./assets/screens/HomeScreen";
+import TutorialsScreen from "./assets/screens/TutorialsScreen";
+import GmailTutorialsScreen from "./assets/screens/GmailTutorialsScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { enableScreens } from "react-native-screens";
 import { NavigationContainer } from "@react-navigation/native";
+
+//import { AlanView } from "@alan-ai/alan-sdk-react-native";
 
 enableScreens();
 
@@ -19,14 +23,25 @@ export default function App() {
       <NativeBaseProvider>
         <Stack.Navigator>
           <Stack.Screen
-            options={{ headerLargeTitle: true }}
+            options={{ headerLargeTitle: true, headerShown: false }}
             name="WelcomeScreen"
             component={WelcomeScreen}
           />
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen
+            options={{ headerShown: false }}
+            name="HomeScreen"
+            component={HomeScreen}
+          />
+          <Stack.Screen name="Tutorials" component={TutorialsScreen} />
+          <Stack.Screen name="Gmail" component={GmailTutorialsScreen} />
         </Stack.Navigator>
         {/* <WelcomeScreen /> */}
       </NativeBaseProvider>
+      {/* <AlanView
+        projectid={
+          "6bfb36c47b7ef4b204b3b338e4e1f5dc2e956eca572e1d8b807a3e2338fdd0dc/stage"
+        }
+      /> */}
     </NavigationContainer>
   );
 }
