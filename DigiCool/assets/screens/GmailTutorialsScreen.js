@@ -19,6 +19,7 @@ function GmailTutorialsScreen(props) {
             style={styles.cardimage}
             source={require("../images/gmail.png")}
           />
+
           <Text style={styles.description}>
             With Gmail, your email is stored safely in the cloud. You can get to
             messages from any computer or device with a web browser. If your
