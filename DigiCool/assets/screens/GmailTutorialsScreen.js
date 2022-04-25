@@ -1,3 +1,4 @@
+import { HStack } from "native-base";
 import React from "react";
 import {
   View,
@@ -26,7 +27,11 @@ function GmailTutorialsScreen({ navigation, route }) {
         <Text style={styles.title}>Choose a Tutorial</Text>
       </View>
       <ScrollView style={{ height: 500 }}>
-        <CardComponent onPress={() => {}}>
+        <CardComponent
+          onPress={() => {
+            navigation.navigate("WhatIsScreen");
+          }}
+        >
           <Image
             style={styles.cardimage}
             source={require("../images/gmail.png")}
@@ -47,10 +52,20 @@ function GmailTutorialsScreen({ navigation, route }) {
             email without an internet connection.
           </Text>
         </CardComponent>
+
+        {/* <HStack>
+          <CardComponent>
+            <Text style={styles.text}>1.</Text>
+          </CardComponent>
+          <CardComponent onPress={() => {}}>
+            <Text style={styles.text}>See new email(Inbox)</Text>
+          </CardComponent>
+        </HStack> */}
+
         <CardComponent onPress={() => {}}>
           <Text style={styles.text}>See new email(Inbox)</Text>
         </CardComponent>
-        <CardComponent onPress={() => {}}>
+        <CardComponent onPress={() => navigation.navigate("Gmail Index")}>
           <Text style={styles.text}>Compose a New Email</Text>
         </CardComponent>
         <CardComponent onPress={() => {}}>

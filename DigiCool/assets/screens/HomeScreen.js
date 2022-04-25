@@ -22,7 +22,11 @@ function HomeScreen({ navigation }) {
             />
             <Text style={styles.cardtext}>New Tutorials</Text>
           </CardComponent>
-          <CardComponent onPress={() => {}}>
+          <CardComponent
+            onPress={() => {
+              navigation.navigate("TestsScreen");
+            }}
+          >
             <Image
               style={styles.cardimage}
               source={require("../images/test.png")}

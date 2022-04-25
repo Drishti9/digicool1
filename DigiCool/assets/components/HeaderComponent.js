@@ -10,8 +10,22 @@ import {
 } from "react-native";
 import { HStack, StatusBar } from "native-base";
 import { AntDesign, Ionicons } from "react-native-vector-icons";
+import language from "../global/language";
+import * as Speech from "expo-speech";
 
-function HeaderComponent({ navigation }) {
+function HeaderComponent({ navigation, text }) {
+  const voice_options = {
+    voice: "hi-in-x-hid-network",
+    volume: 1000,
+  };
+
+  const listAllVoiceOptions = async () => {
+    let voices = await Speech.getAvailableVoicesAsync();
+    //console.log(voices);
+  };
+
+  React.useEffect(listAllVoiceOptions);
+
   return (
     <View>
       <StatusBar backgroundColor="#61dafb" barStyle="dark-content" />
@@ -36,17 +50,21 @@ function HeaderComponent({ navigation }) {
             underlayColor="#000"
             title="Speaker"
             style={styles.button}
-            onPress={() => console.log("Speaker")}
+            // onPress={() => navigation.navigate("Congratulations")}
+            onPress={() => {
+              console.log("abckdmcl");
+              Speech.speak(text, voice_options);
+            }}
           >
             <Ionicons name="volume-medium" color="white" size={35} />
           </TouchableHighlight>
-          <TouchableHighlight
+          {/* <TouchableHighlight
             title="Mic"
             style={styles.button}
-            onPress={() => console.log("Mic")}
+            onPress={() => navigation.navigate("Congratulations")}
           >
             <Ionicons name="mic" color="white" size={35} />
-          </TouchableHighlight>
+          </TouchableHighlight> */}
         </View>
       </HStack>
     </View>

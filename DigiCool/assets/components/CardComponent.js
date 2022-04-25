@@ -1,8 +1,6 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 
-var colour = "#fff";
-
 function CardComponent(props) {
   return (
     <TouchableOpacity style={styles.card} onPress={props.onPress}>

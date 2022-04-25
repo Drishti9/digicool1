@@ -14,46 +14,61 @@ import HeaderComponent from "../components/HeaderComponent";
 
 function WelcomeScreen({ navigation }) {
   return (
-    <View style={{ width: "100%" }}>
+    <View style={{ width: "100%", backgroundColor: "#fff" }}>
       <HeaderComponent style={{ width: "100%" }} navigation={navigation} />
-      <ImageBackground
-        source={require("../images/scroll.png")}
-        // style={styles.image}
-        style={{
-          width: Dimensions.get("window").width,
-          height: "80%",
-          paddingLeft: 30,
-          backgroundColor: "#555",
-          resizeMode: "contain",
-          alignSelf: "center",
-        }}
-      >
-        <View
+
+      <View style={{ alignItems: "center", marginTop: 30 }}>
+        <Image source={require("../images/DigiCool.png")} />
+
+        <ImageBackground
+          source={require("../images/scroll.png")}
+          // style={styles.image}
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 130,
-            justifyContent: "center",
-            alignItems: "center",
-            // backgroundColor: "#000",
+            width: Dimensions.get("window").width,
+            height: "75%",
+            paddingLeft: 30,
+            // backgroundColor: "#555",
+            resizeMode: "contain",
+            alignSelf: "center",
           }}
         >
-          <Text
+          <View
             style={{
-              fontSize: 40,
-              margin: 80,
-              fontWeight: "bold",
-              marginBottom: 50,
-              marginHorizontal: 90,
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 130,
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            Age is just a number, Keep up the good work.
-          </Text>
-        </View>
-      </ImageBackground>
-      <View style={{ marginRight: 30 }}>
+            <Text
+              style={{
+                fontSize: 40,
+                margin: 4,
+                fontWeight: "bold",
+                marginBottom: 50,
+                marginHorizontal: 90,
+              }}
+            >
+              Age is just a number, Keep up the good work.
+            </Text>
+          </View>
+
+          <View style={{ marginRight: 30, marginTop: 390 }}>
+            <TouchableHighlight
+              underlayColor="#021626"
+              title="User"
+              style={({ marginRight: 15 }, styles.button)}
+              onPress={() => navigation.navigate("HomeScreen")}
+            >
+              <AntDesign name="rightcircleo" color="white" size={50} />
+            </TouchableHighlight>
+          </View>
+        </ImageBackground>
+      </View>
+      {/* <View style={{ marginRight: 30 }}>
         <TouchableHighlight
           underlayColor="#021626"
           title="User"
@@ -62,7 +77,7 @@ function WelcomeScreen({ navigation }) {
         >
           <AntDesign name="rightcircleo" color="white" size={50} />
         </TouchableHighlight>
-      </View>
+      </View> */}
     </View>
   );
 }

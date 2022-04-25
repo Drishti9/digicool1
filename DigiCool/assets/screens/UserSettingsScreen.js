@@ -12,22 +12,18 @@ import {
 import HeaderComponent from "../components/HeaderComponent";
 import { AntDesign, Ionicons } from "react-native-vector-icons";
 import { HStack, ScrollView } from "native-base";
+import NavigationHeader from "../components/NavigationHeader";
 
-function UserSettingsScreen({ navigation }) {
-  const [currency, setCurrency] = useState("US Dollar");
+function onPress(language) {}
+
+function UserSettingsScreen({ navigation, route }) {
+  const [language, setLanguage] = useState("English");
+  const name = "Suryakanta Shah",
+    mobileno = 1234567890;
   return (
     <View>
       <HeaderComponent navigation={navigation} />
-      <View
-        style={{
-          alignItems: "center",
-          width: Dimensions.get("window").width,
-          elevation: 10,
-          backgroundColor: "#fff",
-        }}
-      >
-        <Text style={styles.title}>User Settings</Text>
-      </View>
+      <NavigationHeader title={route.name} navigation={navigation} />
 
       <ScrollView style={{ height: 500 }}>
         <View style={{ alignItems: "center" }}>
@@ -40,85 +36,36 @@ function UserSettingsScreen({ navigation }) {
           </View>
         </View>
 
-        <View style={{ margin: 20, marginTop: 30 }}>
+        <View style={{ margin: 20, marginTop: 30, alignItems: "center" }}>
           <HStack style={styles.hstack}>
             <Text style={styles.label}> Name: </Text>
-            <TextInput style={styles.input} placeholder="Email" />
+            <Text style={styles.input}>{name}</Text>
           </HStack>
           <HStack style={{ alignItems: "center", marginVertical: 10 }}>
             <Text style={styles.label}>Mobile No.:</Text>
-            <TextInput style={styles.input} placeholder="Email" />
+            <Text style={styles.input}>{mobileno}</Text>
           </HStack>
 
-          <HStack style={{ alignItems: "center", marginVertical: 10 }}>
-            <Text style={styles.label}>Prefferred Language:</Text>
+          <Text style={{ fontSize: 18, padding: 2, marginTop: 20 }}>
+            Prefferred Language:
+          </Text>
+
+          <View style={{ alignItems: "center" }}>
             <Picker
-              style={{
-                height: 50,
-                width: 150,
-                backgroundColor: "#fff",
-                color: "#000",
-                mode: "dropdown",
-                border: "black",
+              style={{ width: 150 }}
+              selectedValue={language}
+              onValueChange={(currentLanguage) => {
+                setLanguage(currentLanguage);
               }}
-              //   style={styles.input}
-              selectedValue={currency}
-              onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
             >
-              <Picker.Item label="USD" value="US Dollars" />
-              <Picker.Item label="EUR" value="Euro" />
-              <Picker.Item label="NGN" value="Naira" />
+              <Picker.Item label="English" value="EN" />
+              <Picker.Item label="हिन्दी" value="HN" />
+              <Picker.Item label="ગુજરાતી" value="GU" />
+              <Picker.Item label="বেঙ্গল" value="BA" />
+              <Picker.Item label="मराठी" value="MR" />
+              <Picker.Item label="ਪੰਜਾਬੀ" value="PJ" />
             </Picker>
-
-            {/* <Picker
-              selectedValue={currency}
-              onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
-            >
-              <Picker.Item label="USD" value="US Dollars" />
-              <Picker.Item label="EUR" value="Euro" />
-              <Picker.Item label="NGN" value="Naira" />
-            </Picker> */}
-          </HStack>
-
-          <Picker
-            selectedValue={currency}
-            onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
-          >
-            <Picker.Item label="USD" value="US Dollars" />
-            <Picker.Item label="EUR" value="Euro" />
-            <Picker.Item label="NGN" value="Naira" />
-          </Picker>
-          <Text>Selected: {currency}</Text>
-
-          <Picker
-            selectedValue={currency}
-            onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
-          >
-            <Picker.Item label="USD" value="US Dollars" />
-            <Picker.Item label="EUR" value="Euro" />
-            <Picker.Item label="NGN" value="Naira" />
-          </Picker>
-
-          <Picker
-            selectedValue={currency}
-            onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
-          >
-            <Picker.Item label="USD" value="US Dollars" />
-            <Picker.Item label="EUR" value="Euro" />
-            <Picker.Item label="NGN" value="Naira" />
-          </Picker>
-          <Text>Selected: {currency}</Text>
-
-          <View>
-            <Picker
-              selectedValue={currency}
-              onValueChange={(currentCurrency) => setCurrency(currentCurrency)}
-            >
-              <Picker.Item label="USD" value="US Dollars" />
-              <Picker.Item label="EUR" value="Euro" />
-              <Picker.Item label="NGN" value="Naira" />
-            </Picker>
-            <Text>Selected: {currency}</Text>
+            <Text>Selected: {language}</Text>
           </View>
         </View>
       </ScrollView>
@@ -162,15 +109,15 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 18,
     padding: 2,
-    width: "25%",
+    marginTop: 10,
   },
   input: {
-    backgroundColor: "#fff",
-    width: "65%",
+    fontSize: 20,
     alignItems: "center",
-    height: 40,
     marginLeft: 20,
     color: "#000",
+    alignSelf: "center",
+    justifyContent: "center",
   },
 });
 
