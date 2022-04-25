@@ -7,7 +7,7 @@ DigiCool is a platform where anyone and everyone (specially the Elderly) can lea
 - Frontend Application developed using React-Native Expo
 - Backend Application developed using Django Rest Framework
 - User Interface developed using NativeBase
--   API used for intraApp multilingual Traslation
+- deep translate API used for intraApp multilingual Traslation
 
 ### Installation
 
@@ -28,7 +28,7 @@ DigiCool is a platform where anyone and everyone (specially the Elderly) can lea
   expo start
 
 ## Demonstration
-
+https://drive.google.com/file/d/13gxhT2h7UHFSjmcAcpnGkiz_as6a4LZS/view
 
 
 
