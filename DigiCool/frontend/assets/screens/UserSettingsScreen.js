@@ -56,6 +56,8 @@ function UserSettingsScreen({ navigation, route }) {
               selectedValue={language}
               onValueChange={(currentLanguage) => {
                 setLanguage(currentLanguage);
+                console.log(language, currentLanguage);
+                navigation.navigate('Gmail Index',{lang:currentLanguage});
               }}
             >
               <Picker.Item label="English" value="EN" />

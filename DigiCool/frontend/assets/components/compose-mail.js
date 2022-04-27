@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
 const { lightGray, gray } = colors;
 
 export default function ComposeMail(props) {
+
   const axios = require("axios");
 
   const options = {
@@ -62,18 +63,47 @@ export default function ComposeMail(props) {
     headers: {
       "content-type": "application/json",
       "X-RapidAPI-Host": "deep-translate1.p.rapidapi.com",
-      "X-RapidAPI-Key": "e1da648636msh8b8185c84547f9ap1b51b9jsn8ec6899970d2",
+      "X-RapidAPI-Key": "cf7f17cfbemshbf73799ac68e9f0p1913c9jsn047de456cd28",
     },
     //data: '{"q":"hello","source":"en","target":"hi"}'
   };
 
-  const lang = "hi";
+  const l=props.lang;
+
+
+  // const l="hi";
+  // const language = {lang};
+  // if (language==="English")
+  // {
+  //   l="en";
+  // }
+  // else if (language==="हिन्दी")
+  // {
+  //   l="hi";
+  // }
+  // else if(language==="ગુજરાતી"){
+  //   l="gu"; 
+  // }
+  // else if(language==="বেঙ্গল")
+  // {
+  //   l="bn";
+  // }
+  // else if(language==="मराठी")
+  // {
+  //   l="mr";
+  // }
+  // else if (language==="ਪੰਜਾਬੀ")
+  // {
+  //   l="pa";
+  // };
+
+
 
   const buttonResponse = (str) => {
     options.data = JSON.stringify({
       q: `${str}`,
       source: "en",
-      target: `${lang}`,
+      target: `${l}`,
     });
 
     axios
@@ -83,6 +113,7 @@ export default function ComposeMail(props) {
           response.data.data.translations.translatedText,
           voice_options
         );
+        console.log(Speech.getAvailableVoicesAsync());
         //console.log(response.data);
       })
       .catch(function (error) {

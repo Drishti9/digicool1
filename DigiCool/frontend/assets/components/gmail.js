@@ -21,16 +21,20 @@ import colors from "./colors";
 const { width } = Dimensions.get("window");
 
 export default class Gmail extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       undoHeight: new Animated.Value(0),
       offset: 0,
       undoShown: false,
       modal: false,
     };
+    // this.lang=this.props.lang;
     this.showUndo = this.showUndo.bind(this);
     this.hideUndo = this.hideUndo.bind(this);
+
+    // const lang = this.props.lang;
+    console.log(this.props.language+ "  bjdl");
   }
 
   showUndo() {
@@ -152,7 +156,7 @@ export default class Gmail extends Component {
         visible={this.state.modal}
         onRequestClose={() => {}}
       >
-        <ComposeMail onPress={() => this.setState({ modal: false })} />
+        <ComposeMail lang={this.props.language} onPress={() => this.setState({ modal: false })} />
       </Modal>
     );
   }
